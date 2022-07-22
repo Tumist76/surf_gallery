@@ -50,7 +50,7 @@ class SplashScreenFragment : Fragment() {
             } else {
                 findNavController().navigate(R.id.action_splashScreenFragment_to_authScreen)
             }
-        }, 800);
+        }, 1000);
     }
 
     override fun onDestroyView() {
