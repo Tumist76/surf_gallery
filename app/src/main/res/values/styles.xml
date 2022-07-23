@@ -19,4 +19,16 @@
     <style name="LoginTextInputStyle">
         <item name="android:textAppearance">@style/Text.Medium.16</item>
     </style>
+
+    <style name="AppErrorSnackbarTheme" parent="@style/Widget.MaterialComponents.Snackbar">
+        <item name="android:background">@color/snackbar_red</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="AppErrorSnackbarTextViewTheme" parent="@style/Widget.MaterialComponents.Snackbar.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/Text.Medium.14</item>
+    </style>
 </resources>

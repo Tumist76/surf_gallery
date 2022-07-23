@@ -11,6 +11,7 @@
 
     <color name="input_bg">#FFFBFBFB</color>
     <color name="main_red">#FFFF002E</color>
+    <color name="snackbar_red">#FFFF4545</color>
     <color name="text_grey">#4D000000</color>
 
 </resources>

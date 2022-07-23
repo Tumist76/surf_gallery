@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.snackbar.Snackbar
 import ru.tumist.surfgallery.R
 import ru.tumist.surfgallery.databinding.FragmentAuthScreenBinding
 import ru.tumist.surfgallery.presentation.auth.viewModel.AuthScreenViewModel
@@ -39,6 +40,11 @@ class AuthScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.authButtonConfirm.setOnClickListener {
             binding.authButtonConfirm.isLoading = true
+            Snackbar.make(
+                binding.root,
+                resources.getString(R.string.auth_credentials_invalid_error_text),
+                Snackbar.LENGTH_LONG
+            ).setAnchorView(binding.authButtonConfirm).show()
         }
     }
 
