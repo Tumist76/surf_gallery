@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LoginInputStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="errorTextColor">@color/main_red</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="boxStrokeErrorColor">@color/main_red</item>
+        <item name="errorTextAppearance">@style/Text.Regular.12</item>
+        <item name="boxBackgroundColor">@color/input_bg</item>
+        <item name="hintTextColor">@color/text_grey</item>
+        <item name="android:textColorHint">@color/text_grey</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        I
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <!--        <item name="boxStrokeColor">@drawable/box_stoke_color_selector</item>-->
+    </style>
+
+    <style name="LoginTextInputStyle">
+        <item name="android:textAppearance">@style/Text.Medium.16</item>
+    </style>
+</resources>

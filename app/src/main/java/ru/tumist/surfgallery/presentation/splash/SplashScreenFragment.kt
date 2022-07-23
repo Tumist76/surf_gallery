@@ -43,7 +43,6 @@ class SplashScreenFragment : Fragment() {
     }
 
     private fun navigateToScreen(isAuthorized: Boolean) {
-        Log.w("naviga", "isAuthorized = $isAuthorized")
         Handler(Looper.getMainLooper()).postDelayed({
             if (isAuthorized) {
                 findNavController().navigate(R.id.action_splashScreenFragment_to_galleryScreenFragment)

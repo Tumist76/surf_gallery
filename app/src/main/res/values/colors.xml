@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
+
+    <color name="input_bg">#FFFBFBFB</color>
+    <color name="main_red">#FFFF002E</color>
+    <color name="text_grey">#4D000000</color>
+
 </resources>

@@ -7,9 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.tumist.surfgallery.R
+import ru.tumist.surfgallery.databinding.FragmentAuthScreenBinding
 import ru.tumist.surfgallery.presentation.auth.viewModel.AuthScreenViewModel
 
 class AuthScreen : Fragment() {
+
+    private var _binding: FragmentAuthScreenBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         fun newInstance() = AuthScreen()
@@ -21,7 +25,8 @@ class AuthScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_auth_screen, container, false)
+        _binding = FragmentAuthScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -30,4 +35,15 @@ class AuthScreen : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.authButtonConfirm.setOnClickListener {
+            binding.authButtonConfirm.isLoading = true
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
