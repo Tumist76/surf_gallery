@@ -12,7 +12,10 @@ import ru.tumist.surfgallery.presentation.auth.state.AuthScreenState
 import ru.tumist.surfgallery.presentation.auth.state.FieldValidationErrorType
 import ru.tumist.surfgallery.service.ApplicationState
 
-class AuthScreenViewModel(private val authenticateUseCase: AuthenticateUserUseCase, private val applicationState: ApplicationState,) : ViewModel() {
+class AuthScreenViewModel(
+    private val authenticateUseCase: AuthenticateUserUseCase,
+    private val applicationState: ApplicationState,
+) : ViewModel() {
     val state = MutableStateFlow<AuthScreenState>(AuthScreenState.Idle)
 
     private var phone: String = ""
@@ -36,8 +39,11 @@ class AuthScreenViewModel(private val authenticateUseCase: AuthenticateUserUseCa
         viewModelScope.launch {
             state.emit(AuthScreenState.Loading)
             val processedPhone = "+7$phone"
-            when (authenticateUseCase.execute(processedPhone, password)) {
-                is ResultModel.Success -> state.emit(AuthScreenState.Authorized)
+            when (val result = authenticateUseCase.execute(processedPhone, password)) {
+                is ResultModel.Success -> {
+                    applicationState.authInfo = result.value
+                    state.emit(AuthScreenState.Authorized)
+                }
                 ResultError.ConnectionError -> state.emit(
                     AuthScreenState.AuthError(AuthErrorType.CONNECTION_ERROR)
                 )
@@ -46,7 +52,7 @@ class AuthScreenViewModel(private val authenticateUseCase: AuthenticateUserUseCa
         }
     }
 
-    private fun isInputValid() : Boolean {
+    private fun isInputValid(): Boolean {
         val phoneValidationError = getPhoneValidationError(phone)
         val passwordValidationError = getPasswordValidationError(password)
         if (phoneValidationError != null || passwordValidationError != null) {

@@ -14,10 +14,14 @@
         <item name="android:windowLightStatusBar">true</item>
         <!-- Navigation bar color -->
         <item name="android:navigationBarColor">@color/white</item>
-        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="q">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
 
         <!-- Snackbar -->
         <item name="snackbarStyle">@style/AppErrorSnackbarTheme</item>
         <item name="snackbarTextViewStyle">@style/AppErrorSnackbarTextViewTheme</item>
+
+
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@color/transparent</item>
     </style>
 </resources>

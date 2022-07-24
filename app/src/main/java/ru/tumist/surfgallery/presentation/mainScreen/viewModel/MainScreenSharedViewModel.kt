@@ -63,6 +63,7 @@ class MainScreenSharedViewModel(
     }
 
     fun clearLocalData() {
+        picturesList = listOf()
         viewModelScope.launch {
             clearLocalDataUseCase.execute()
         }

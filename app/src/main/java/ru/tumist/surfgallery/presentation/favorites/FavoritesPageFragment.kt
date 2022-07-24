@@ -1,5 +1,7 @@
 package ru.tumist.surfgallery.presentation.favorites
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,10 +11,12 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.NonCancellable.cancel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import ru.tumist.surfgallery.R
 import ru.tumist.surfgallery.databinding.FragmentFavoritesPageBinding
 import ru.tumist.surfgallery.domain.model.PictureModel
+import ru.tumist.surfgallery.domain.repository.PicturesRepository
 import ru.tumist.surfgallery.presentation.mainContainer.MainScreenContainerFragmentDirections
 import ru.tumist.surfgallery.presentation.mainScreen.state.MainScreenState
 import ru.tumist.surfgallery.presentation.mainScreen.viewModel.MainScreenSharedViewModel
@@ -26,9 +30,9 @@ class FavoritesPageFragment : Fragment() {
     private var _binding: FragmentFavoritesPageBinding? = null
     private val binding get() = _binding!!
 
-    private val sharedViewModel: MainScreenSharedViewModel by sharedViewModel<MainScreenSharedViewModel>()
+    private val sharedViewModel: MainScreenSharedViewModel by sharedViewModel()
 
-    private lateinit var picturesAdapter : PicturesAdapter
+    private lateinit var picturesAdapter: PicturesAdapter
 
     private fun onFavoriteClicked(item: PictureModel, isFavorite: Boolean) {
         sharedViewModel.setFavorite(item, isFavorite)
@@ -106,6 +110,8 @@ class FavoritesPageFragment : Fragment() {
         if (state.pictures.isEmpty()) {
             binding.galleryLoader.isVisible = true
         }
+        binding.galleryLoader.isVisible = false
+        binding.galleryLoadErrorView.isVisible = false
         picturesAdapter.submitList(state.pictures.filter { it.isFavorite })
     }
 
@@ -113,6 +119,7 @@ class FavoritesPageFragment : Fragment() {
         binding.galleryLoadErrorView.isVisible = true
         binding.galleryLoader.isVisible = false
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

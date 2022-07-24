@@ -48,13 +48,6 @@
             android:label="fragment_main_screen_container"
             tools:layout="@layout/fragment_main_screen_container" >
             <action
-                android:id="@+id/action_mainScreenContainerFragment_to_searchScreenFragment"
-                app:destination="@id/searchScreenFragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-            <action
                 android:id="@+id/action_mainScreenContainerFragment_to_pictureViewFragment"
                 app:destination="@id/pictureViewFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
@@ -62,11 +55,6 @@
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         </fragment>
-        <fragment
-            android:id="@+id/searchScreenFragment"
-            android:name="ru.tumist.surfgallery.presentation.search.SearchScreenFragment"
-            android:label="fragment_search_screen"
-            tools:layout="@layout/fragment_search_screen" />
         <fragment
             android:id="@+id/pictureViewFragment"
             android:name="ru.tumist.surfgallery.presentation.pictureView.PictureViewFragment"

@@ -10,7 +10,7 @@ data class PictureModel(
     val id: Int,
     val title: String,
     val content: String,
-    val photoUrl: String,
+    val photoUrl: String?,
     val publicationDate: Date,
     val isFavorite: Boolean,
 ) : Parcelable

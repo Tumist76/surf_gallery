@@ -27,7 +27,7 @@ class GalleryPageFragment : Fragment() {
     private var _binding: FragmentGalleryPageBinding? = null
     private val binding get() = _binding!!
 
-    private val sharedViewModel: MainScreenSharedViewModel by sharedViewModel<MainScreenSharedViewModel>()
+    private val sharedViewModel: MainScreenSharedViewModel by sharedViewModel()
 
     private val picturesAdapter = PicturesAdapter(this::onFavoriteClicked, this::onPictureItemTap)
 
@@ -74,9 +74,6 @@ class GalleryPageFragment : Fragment() {
         binding.galleryLoader.isVisible = true
         binding.picturesSwipeRefresh.setOnRefreshListener { sharedViewModel.getPictures() }
         binding.galleryRefreshBtn.setOnClickListener { sharedViewModel.getPictures() }
-        binding.searchIconIv.setOnClickListener {
-            findTopNavController().navigate(R.id.searchScreenFragment)
-        }
         binding.picturesRv.addItemDecoration(
             MarginItemDecoration(
                 verticalItemPadding = resources.getDimensionPixelSize(R.dimen.vertical_grid_view_padding),
@@ -107,6 +104,7 @@ class GalleryPageFragment : Fragment() {
         if (state.pictures.isEmpty()) {
             binding.galleryLoader.isVisible = true
         }
+        binding.galleryLoadErrorView.isVisible = false
         picturesAdapter.submitList(state.pictures)
     }
 

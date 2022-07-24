@@ -42,8 +42,4 @@
         <item name="android:textOn"></item>
         <item name="android:textOff"></item>
     </style>
-
-<!--    <style name="AppBottomNavigation" parent="@style/Widget.MaterialComponents.BottomNavigationView">-->
-<!--        <item name-->
-<!--    </style>-->
 </resources>

@@ -41,7 +41,7 @@ class MainScreenContainerFragment : Fragment() {
         val navHost = childFragmentManager.findFragmentById(R.id.main_screen_nav_host_fragment) as NavHostFragment
         val navController = navHost.navController
         navController.addOnDestinationChangedListener{ _, dest, _ ->
-            Log.w("NavConroller", "New destination - ${dest.toString()}")
+            Log.w("NavController", "New destination - ${dest.toString()}")
         }
         binding.bottomNavigationView.setupWithNavController(navController)
         applicationState.onUnauthenticated = this::onUnauthenticated
@@ -49,6 +49,7 @@ class MainScreenContainerFragment : Fragment() {
 
     private fun onUnauthenticated() {
         sharedViewModel.clearLocalData()
+        applicationState.authInfo = null
         runOnUiThread { findTopNavController().navigate(R.id.authScreen) }
     }
 

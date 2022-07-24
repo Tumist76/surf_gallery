@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_password_show.xml" value="0.2705" />
         <entry key="app/src/main/res/drawable/ic_surf_edu.xml" value="0.356" />
         <entry key="app/src/main/res/drawable/ic_toggle_backgroud.xml" value="0.2705" />
+        <entry key="app/src/main/res/drawable/selector_bottom_navigation_view_color.xml" value="0.284" />
         <entry key="app/src/main/res/drawable/selector_box_stroke_color.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/selector_ic_password_icon.xml" value="0.2705" />
         <entry key="app/src/main/res/drawable/selector_toggle_button_like.xml" value="0.2705" />
@@ -30,6 +31,7 @@
         <entry key="app/src/main/res/layout/fragment_search_screen.xml" value="0.4470108695652174" />
         <entry key="app/src/main/res/layout/fragment_splash_screen.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_picture_main.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/layout/profile_field.xml" value="0.32365657813465104" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.375" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.192" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.192" />

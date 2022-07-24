@@ -14,7 +14,7 @@ data class PictureModelDto(
     @Json(name = "content")
     val content: String,
     @Json(name = "photoUrl")
-    val photoUrl: String,
+    val photoUrl: String?,
     @Json(name = "publicationDate")
     val publicationDate: Date,
 )
