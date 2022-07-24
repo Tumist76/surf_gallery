@@ -9,19 +9,19 @@ data class UserInfoDto(
     @Json(name = "id")
     val id: String,
     @Json(name = "phone")
-    val phone: String,
+    val phone: String?,
     @Json(name = "email")
-    val email: String,
+    val email: String?,
     @Json(name = "firstName")
-    val firstName: String,
+    val firstName: String?,
     @Json(name = "lastName")
-    val lastName: String,
+    val lastName: String?,
     @Json(name = "avatar")
-    val avatar: String,
+    val avatar: String?,
     @Json(name = "city")
-    val city: String,
+    val city: String?,
     @Json(name = "about")
-    val about: String,
+    val about: String?,
 )
 
 fun UserInfoDto.toDomain() = UserInfo(

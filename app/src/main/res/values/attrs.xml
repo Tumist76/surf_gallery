@@ -4,4 +4,9 @@
         <attr name="text" format="reference|string"/>
         <attr name="is_loading" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="ProfileField">
+        <attr name="label" format="reference|string"/>
+        <attr name="value" format="reference|string"/>
+    </declare-styleable>
 </resources>

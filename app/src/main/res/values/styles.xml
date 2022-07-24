@@ -31,4 +31,15 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textAppearance">@style/Text.Medium.14</item>
     </style>
+
+    <style name="Widget.Button.Toggle" parent="android:Widget">
+        <item name="android:background">@drawable/ic_toggle_background</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+    </style>
+
+    <style name="AppToggleButton"  parent="android:Widget.Button.Toggle">
+        <item name="android:buttonStyleToggle">@style/Widget.Button.Toggle</item>
+        <item name="android:textOn"></item>
+        <item name="android:textOff"></item>
+    </style>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_grid_view_padding">8dp</dimen>
+    <dimen name="vertical_grid_view_padding">12dp</dimen>
+    <dimen name="horizontal_view_padding">16dp</dimen>
+    <dimen name="favorite_item_image_height">358dp</dimen>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen_nav_graph"
+    app:startDestination="@id/galleryPageFragment">
+
+    <fragment
+        android:id="@+id/favoritesPageFragment"
+        android:name="ru.tumist.surfgallery.presentation.favorites.FavoritesPageFragment"
+        android:label="fragment_favorites_page"
+        tools:layout="@layout/fragment_favorites_page" />
+    <fragment
+        android:id="@+id/galleryPageFragment"
+        android:name="ru.tumist.surfgallery.presentation.gallery.GalleryPageFragment"
+        android:label="fragment_gallery_page"
+        tools:layout="@layout/fragment_gallery_page" />
+    <fragment
+        android:id="@+id/profilePageFragment"
+        android:name="ru.tumist.surfgallery.presentation.profile.ProfilePageFragment"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile_page" />
+</navigation>

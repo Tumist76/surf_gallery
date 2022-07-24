@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="ru.tumist.surfgallery.presentation.splash.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_authScreen"
+            app:destination="@id/authScreen"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_mainScreenContainerFragment"
+            app:destination="@id/nested_main_navigation"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/authScreen"
+        android:name="ru.tumist.surfgallery.presentation.auth.AuthScreen"
+        android:label="fragment_auth_screen"
+        tools:layout="@layout/fragment_auth_screen" >
+        <action
+            android:id="@+id/action_authScreen_to_mainScreenContainerFragment"
+            app:destination="@id/nested_main_navigation"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <navigation android:id="@+id/nested_main_navigation"
+        app:startDestination="@id/mainScreenContainerFragment">
+        <fragment
+            android:id="@+id/mainScreenContainerFragment"
+            android:name="ru.tumist.surfgallery.presentation.mainContainer.MainScreenContainerFragment"
+            android:label="fragment_main_screen_container"
+            tools:layout="@layout/fragment_main_screen_container" >
+            <action
+                android:id="@+id/action_mainScreenContainerFragment_to_pictureViewFragment"
+                app:destination="@id/pictureViewFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        </fragment>
+        <fragment
+            android:id="@+id/pictureViewFragment"
+            android:name="ru.tumist.surfgallery.presentation.pictureView.PictureViewFragment"
+            android:label="fragment_picture_view"
+            tools:layout="@layout/fragment_picture_view" >
+            <argument
+                android:name="pictureModel"
+                app:argType="ru.tumist.surfgallery.domain.model.PictureModel"
+                app:nullable="false" />
+        </fragment>
+    </navigation>
+</navigation>

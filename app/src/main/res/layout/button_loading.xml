@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:parentTag="android.widget.FrameLayout"
-    tools:context=".presentation.appViews.AppLoadingButton">
+    tools:context=".presentation.views.buttons.AppLoadingButton">
 
     <FrameLayout
         android:layout_height="48dp"
@@ -21,7 +21,7 @@
             android:gravity="center"
             android:textAppearance="@style/Text.Medium.16"
             android:textColor="@color/white"
-            android:text="@string/app_loading_button_text"/>
+            tools:text="@string/app_loading_button_text"/>
 
         <ProgressBar
             android:id="@+id/loading_pb"

@@ -1,4 +1,4 @@
-package ru.tumist.surfgallery.presentation.appViews
+package ru.tumist.surfgallery.presentation.views.buttons
 
 import android.content.Context
 import android.util.AttributeSet

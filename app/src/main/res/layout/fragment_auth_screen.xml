@@ -69,7 +69,7 @@
         android:layout_marginBottom="50dp"
         tools:ignore="ContentDescription" />
 
-    <ru.tumist.surfgallery.presentation.appViews.AppLoadingButton
+    <ru.tumist.surfgallery.presentation.views.buttons.AppLoadingButton
         android:id="@+id/auth_button_confirm"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="20dp"

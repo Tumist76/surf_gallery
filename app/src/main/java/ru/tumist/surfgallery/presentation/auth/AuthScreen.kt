@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -84,7 +85,7 @@ class AuthScreen : Fragment() {
 
     private fun handleAuthorized() {
         stopLoading()
-
+        findNavController().navigate(R.id.action_authScreen_to_mainScreenContainerFragment)
     }
 
     private fun handleInvalidEntry(state: AuthScreenState.InvalidEntry) {

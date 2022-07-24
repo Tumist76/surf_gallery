@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -51,6 +53,7 @@ dependencies {
     def koin_version= "3.2.0"
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
@@ -70,6 +73,7 @@ dependencies {
     // Moshi
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
+    implementation("com.squareup.moshi:moshi-adapters:1.8.0")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
     // Interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
@@ -81,6 +85,9 @@ dependencies {
 
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // Coil
+    implementation("io.coil-kt:coil:2.1.0")
 
     // Input mask
     implementation 'com.github.RedMadRobot:input-mask-android:6.1.0'
