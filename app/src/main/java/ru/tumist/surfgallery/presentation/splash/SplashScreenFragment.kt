@@ -32,7 +32,7 @@ class SplashScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getAuthInfo();
+        viewModel.getAuthInfo()
         viewModel.state.collectOnLifecycle(this) {
             when (it) {
                 SplashScreenState.Authorized -> navigateToScreen(isAuthorized = true)
@@ -45,11 +45,11 @@ class SplashScreenFragment : Fragment() {
     private fun navigateToScreen(isAuthorized: Boolean) {
         Handler(Looper.getMainLooper()).postDelayed({
             if (isAuthorized) {
-                findNavController().navigate(R.id.action_splashScreenFragment_to_galleryScreenFragment)
+                findNavController().navigate(R.id.action_splashScreenFragment_to_mainScreenContainerFragment)
             } else {
                 findNavController().navigate(R.id.action_splashScreenFragment_to_authScreen)
             }
-        }, 1000);
+        }, 800)
     }
 
     override fun onDestroyView() {

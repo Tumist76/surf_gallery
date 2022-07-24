@@ -81,4 +81,8 @@ dependencies {
 
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // Input mask
+    implementation 'com.github.RedMadRobot:input-mask-android:6.1.0'
+
 }

@@ -11,28 +11,28 @@
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
-            android:id="@+id/action_splashScreenFragment_to_galleryScreenFragment"
-            app:destination="@id/galleryScreenFragment"
-            app:popUpTo="@id/navigation_graph"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_splashScreenFragment_to_authScreen"
             app:destination="@id/authScreen"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_mainScreenContainerFragment"
+            app:destination="@id/mainScreenContainerFragment"
+            app:popUpTo="@id/navigation_graph"
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/galleryScreenFragment"
-        android:name="ru.tumist.surfgallery.presentation.gallery.GalleryScreenFragment"
-        android:label="fragment_gallery_screen"
-        tools:layout="@layout/fragment_gallery_screen" />
     <fragment
         android:id="@+id/authScreen"
         android:name="ru.tumist.surfgallery.presentation.auth.AuthScreen"
         android:label="fragment_auth_screen"
         tools:layout="@layout/fragment_auth_screen" >
         <action
-            android:id="@+id/action_authScreen_to_galleryScreenFragment"
-            app:destination="@id/galleryScreenFragment" />
+            android:id="@+id/action_authScreen_to_mainScreenContainerFragment"
+            app:destination="@id/mainScreenContainerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mainScreenContainerFragment"
+        android:name="ru.tumist.surfgallery.presentation.mainContainer.MainScreenContainerFragment"
+        android:label="fragment_main_screen_container"
+        tools:layout="@layout/fragment_main_screen_container" />
 </navigation>

@@ -28,6 +28,7 @@
         app:layout_constraintTop_toBottomOf="@id/auth_title_tv">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/auth_phone_et"
             style="@style/LoginTextInputStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,6 +51,7 @@
         app:passwordToggleDrawable="@drawable/selector_ic_password_icon">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/auth_password_et"
             style="@style/LoginTextInputStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,5 +79,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:text="@string/auth_login_button"
         app:is_loading="false"/>
+
+    <FrameLayout
+        android:id="@+id/auth_screen_loader_blocker"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

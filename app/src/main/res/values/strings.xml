@@ -8,4 +8,8 @@
     <string name="auth_login_button">Войти</string>
     <string name="app_loading_button_text">Действие</string>
     <string name="auth_credentials_invalid_error_text">Логин или пароль введен неправильно</string>
+    <string name="auth_empty_field">Поле не может быть пустым</string>
+    <string name="auth_incorrect_phone_format">Неверный формат номера телефона</string>
+    <string name="auth_incorrect_password_format">Пароль должен быть от 6 до 255 символов</string>
+    <string name="connection_error_snackbar_text">Отсутствует интернет-соединение\nПопробуйте позже</string>
 </resources>

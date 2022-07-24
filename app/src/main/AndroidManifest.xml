@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.tumist.surfgallery">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <!-- Отключение планшетов -->
     <compatible-screens>
         <!-- all small size screens -->
