@@ -16,6 +16,9 @@
         <!-- Navigation bar color -->
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowLightNavigationBar">true</item>
+        <!-- Snackbar -->
+        <item name="snackbarStyle">@style/AppErrorSnackbarTheme</item>
+        <item name="snackbarTextViewStyle">@style/AppErrorSnackbarTextViewTheme</item>
         <!-- Customize your theme here. -->
         <item name="android:windowSplashScreenAnimatedIcon">@color/transparent</item>
     </style>

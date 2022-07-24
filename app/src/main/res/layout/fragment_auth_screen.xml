@@ -1,13 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.auth.AuthScreen">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Auth Screen" />
+        android:id="@+id/auth_title_tv"
+        style="@style/Text.SemiBold.24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/auth_screen_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/auth_phone_til"
+        style="@style/LoginInputStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="45dp"
+        android:hint="@string/auth_phone_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/auth_title_tv">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/auth_phone_et"
+            style="@style/LoginTextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@id/auth_password_til"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/auth_password_til"
+        style="@style/LoginInputStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="13dp"
+        android:hint="@string/auth_password_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/auth_phone_til"
+        app:endIconMode="password_toggle"
+        app:passwordToggleDrawable="@drawable/selector_ic_password_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/auth_password_et"
+            style="@style/LoginTextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_surf_edu_white_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/auth_button_confirm"
+        android:layout_marginBottom="50dp"
+        tools:ignore="ContentDescription" />
+
+    <ru.tumist.surfgallery.presentation.appViews.AppLoadingButton
+        android:id="@+id/auth_button_confirm"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:text="@string/auth_login_button"
+        app:is_loading="false"/>
+
+    <FrameLayout
+        android:id="@+id/auth_screen_loader_blocker"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
