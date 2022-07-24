@@ -10,8 +10,9 @@ import ru.tumist.surfgallery.domain.useCase.AuthenticateUserUseCase
 import ru.tumist.surfgallery.presentation.auth.state.AuthErrorType
 import ru.tumist.surfgallery.presentation.auth.state.AuthScreenState
 import ru.tumist.surfgallery.presentation.auth.state.FieldValidationErrorType
+import ru.tumist.surfgallery.service.ApplicationState
 
-class AuthScreenViewModel(private val authenticateUseCase: AuthenticateUserUseCase) : ViewModel() {
+class AuthScreenViewModel(private val authenticateUseCase: AuthenticateUserUseCase, private val applicationState: ApplicationState,) : ViewModel() {
     val state = MutableStateFlow<AuthScreenState>(AuthScreenState.Idle)
 
     private var phone: String = ""

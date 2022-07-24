@@ -31,6 +31,10 @@ class LocalDataStore(private val context: Context) {
         }
     }
 
+    suspend fun removeEntry(key: String) {
+       context.dataStore.edit { it.remove(stringPreferencesKey(key)) }
+    }
+
     companion object {
         private const val STORE_KEY = "TUMIST_SURF_GALLERY_KEY"
     }

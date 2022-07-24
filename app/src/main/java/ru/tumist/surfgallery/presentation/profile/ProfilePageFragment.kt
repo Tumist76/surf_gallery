@@ -1,4 +1,4 @@
-package ru.tumist.surfgallery.presentation.gallery
+package ru.tumist.surfgallery.presentation.profile
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,26 +7,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.tumist.surfgallery.R
-import ru.tumist.surfgallery.presentation.gallery.viewModel.GalleryScreenViewModel
 
-class GalleryScreenFragment : Fragment() {
+class ProfilePageFragment : Fragment() {
 
     companion object {
-        fun newInstance() = GalleryScreenFragment()
+        fun newInstance() = ProfilePageFragment()
     }
 
-    private lateinit var viewModel: GalleryScreenViewModel
+    private lateinit var viewModel: ProfilePageViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_gallery_screen, container, false)
+        return inflater.inflate(R.layout.fragment_profile_page, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GalleryScreenViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ProfilePageViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

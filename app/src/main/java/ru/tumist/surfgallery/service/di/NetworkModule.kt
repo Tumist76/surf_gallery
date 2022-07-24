@@ -1,5 +1,6 @@
 package ru.tumist.surfgallery.service.di
 
+import com.squareup.moshi.Moshi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -9,8 +10,9 @@ import org.koin.dsl.module
 import org.koin.java.KoinJavaComponent.inject
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import ru.tumist.surfgallery.BuildConfig
 import ru.tumist.surfgallery.data.network.AuthApi
+import ru.tumist.surfgallery.data.network.PicturesApi
+import ru.tumist.surfgallery.data.utils.EpochDateJsonAdapter
 import ru.tumist.surfgallery.service.ApplicationState
 
 
@@ -21,7 +23,7 @@ class RequestInterceptor(
     override fun intercept(chain: Interceptor.Chain): Response {
         val request: Request = chain.request()
             .newBuilder()
-            .addHeader("Authorization", "Bearer $token")
+            .addHeader("Authorization", "Token $token")
             .build()
         val response = chain.proceed(request)
         when (response.code) {
@@ -51,8 +53,9 @@ val networkModule = module {
     }
 
     fun createRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        val moshi = Moshi.Builder().add(EpochDateJsonAdapter()).build()
         return Retrofit.Builder()
-            .addConverterFactory(MoshiConverterFactory.create().asLenient())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .build()
@@ -62,7 +65,12 @@ val networkModule = module {
         return retrofit.create(AuthApi::class.java)
     }
 
+    fun createPicturesApi(retrofit: Retrofit): PicturesApi {
+        return retrofit.create(PicturesApi::class.java)
+    }
+
     single { createOkhttpClient() }
     single { createRetrofit(get()) }
     single { createAuthApi(get()) }
+    single { createPicturesApi(get()) }
 }

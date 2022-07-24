@@ -37,6 +37,10 @@ class AuthInfoDataRepository(
         return localDataStore.set(key = AUTH_INFO_KEY, value = authInfoString)
     }
 
+    override suspend fun clearAuthInfo() {
+        localDataStore.removeEntry(AUTH_INFO_KEY)
+    }
+
     companion object {
         private const val AUTH_INFO_KEY = "auth_info"
     }

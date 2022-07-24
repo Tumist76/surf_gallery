@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/galleryPageFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_line"
+        android:title="@string/bottom_bar_main_screen_title" />
+    <item
+        android:id="@+id/favoritesPageFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_heart"
+        android:title="@string/bottom_bar_favorites_screen_title" />
+    <item
+        android:id="@+id/profilePageFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_emotion_line"
+        android:title="@string/bottom_bar_profile_screen_title" />
+
+</menu>

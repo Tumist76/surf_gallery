@@ -12,4 +12,7 @@
     <string name="auth_incorrect_phone_format">Неверный формат номера телефона</string>
     <string name="auth_incorrect_password_format">Пароль должен быть от 6 до 255 символов</string>
     <string name="connection_error_snackbar_text">Отсутствует интернет-соединение\nПопробуйте позже</string>
+    <string name="bottom_bar_main_screen_title">Главная</string>
+    <string name="bottom_bar_favorites_screen_title">Избранное</string>
+    <string name="bottom_bar_profile_screen_title">Профиль</string>
 </resources>
