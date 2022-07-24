@@ -16,11 +16,11 @@ import ru.tumist.surfgallery.data.utils.EpochDateJsonAdapter
 import ru.tumist.surfgallery.service.ApplicationState
 
 
-class RequestInterceptor(
-    private val onUnauthenticated: () -> Unit,
-    private val token: String
+class AppStateTokenRequestInterceptor(
+    private val applicationState: ApplicationState
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
+        val token = applicationState.authInfo?.token ?: ""
         val request: Request = chain.request()
             .newBuilder()
             .addHeader("Authorization", "Token $token")
@@ -28,7 +28,7 @@ class RequestInterceptor(
         val response = chain.proceed(request)
         when (response.code) {
             401 -> {
-                onUnauthenticated()
+                applicationState.onUnauthenticated()
             }
         }
         return response
@@ -43,8 +43,7 @@ val networkModule = module {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
-        val token = appState.authInfo?.token ?: ""
-        val requestInterceptor = RequestInterceptor(appState.onUnauthenticated, token)
+        val requestInterceptor = AppStateTokenRequestInterceptor(appState)
 
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
