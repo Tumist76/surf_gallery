@@ -13,11 +13,19 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_authScreen"
             app:destination="@id/authScreen"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreenFragment_to_mainScreenContainerFragment"
             app:destination="@id/nested_main_navigation"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/navigation_graph"
             app:popUpToInclusive="true" />
     </fragment>
@@ -28,7 +36,9 @@
         tools:layout="@layout/fragment_auth_screen" >
         <action
             android:id="@+id/action_authScreen_to_mainScreenContainerFragment"
-            app:destination="@id/nested_main_navigation" />
+            app:destination="@id/nested_main_navigation"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <navigation android:id="@+id/nested_main_navigation"
         app:startDestination="@id/mainScreenContainerFragment">
@@ -39,12 +49,33 @@
             tools:layout="@layout/fragment_main_screen_container" >
             <action
                 android:id="@+id/action_mainScreenContainerFragment_to_searchScreenFragment"
-                app:destination="@id/searchScreenFragment" />
+                app:destination="@id/searchScreenFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            <action
+                android:id="@+id/action_mainScreenContainerFragment_to_pictureViewFragment"
+                app:destination="@id/pictureViewFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         </fragment>
         <fragment
             android:id="@+id/searchScreenFragment"
             android:name="ru.tumist.surfgallery.presentation.search.SearchScreenFragment"
             android:label="fragment_search_screen"
             tools:layout="@layout/fragment_search_screen" />
+        <fragment
+            android:id="@+id/pictureViewFragment"
+            android:name="ru.tumist.surfgallery.presentation.pictureView.PictureViewFragment"
+            android:label="fragment_picture_view"
+            tools:layout="@layout/fragment_picture_view" >
+            <argument
+                android:name="pictureModel"
+                app:argType="ru.tumist.surfgallery.domain.model.PictureModel"
+                app:nullable="false" />
+        </fragment>
     </navigation>
 </navigation>

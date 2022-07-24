@@ -30,7 +30,7 @@ class MainScreenSharedViewModel(
 
     fun getPictures() {
         viewModelScope.launch {
-            state.emit(MainScreenState.Loading)
+            state.emit(MainScreenState.Loading(picturesList))
             when (val result = getPicturesUseCase.execute()) {
                 is ResultModel.Success -> {
                     if (result.value.isEmpty()) {
@@ -40,7 +40,16 @@ class MainScreenSharedViewModel(
                         state.emit(MainScreenState.Loaded(result.value))
                     }
                 }
-                else -> state.emit(MainScreenState.Error)
+                else -> {
+                    if (picturesList.isNotEmpty()) {
+                        state.emit(
+                            MainScreenState.Loaded(picturesList, isCompletedWithError = true)
+                        )
+                    } else {
+                        state.emit(MainScreenState.Error)
+                    }
+                }
+
             }
         }
     }

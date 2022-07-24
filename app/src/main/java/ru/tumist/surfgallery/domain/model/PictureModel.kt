@@ -1,7 +1,11 @@
 package ru.tumist.surfgallery.domain.model
 
+import android.os.Parcelable
+import java.text.SimpleDateFormat
 import java.util.*
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class PictureModel(
     val id: Int,
     val title: String,
@@ -9,11 +13,10 @@ data class PictureModel(
     val photoUrl: String,
     val publicationDate: Date,
     val isFavorite: Boolean,
-)
+) : Parcelable
 
+fun PictureModel.dateToViewString() : String {
+    val dateFormatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+    return dateFormatter.format(publicationDate)
+}
 
-//"id": "2",
-//"title": "Дневник Келли",
-//"content": "Дорогой дневник. Сегодня тот самый день, когда можно смело забить на уроки и тусоваться с друзьями до самого утра. Этот день недели принято называть пятницей. По традиции ученики старшей школы устраивают вечеринку на озере, на которую обязаны идти все, уважающие себя, старшеклассники. Пропустить такое веселье способны только мальчики и девочки, которые слишком сильно зависят от родителей, которые предпочитают вместо вечеринок прочитать книги, и которые лучше выпьют сладкий чай перед сном, чем пиво",
-//"photoUrl": "https://i.pinimg.com/736x/c9/e5/97/c9e59738b505fe8948c87b9cfe033900.jpg",
-//"publicationDate": 1654851600000

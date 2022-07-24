@@ -15,4 +15,9 @@
     <string name="bottom_bar_main_screen_title">Главная</string>
     <string name="bottom_bar_favorites_screen_title">Избранное</string>
     <string name="bottom_bar_profile_screen_title">Профиль</string>
+    <string name="profile_screen_title">Профиль</string>
+    <string name="gallery_screen_title">Галерея</string>
+    <string name="gallery_load_error_text">Не удалось загрузить ленту\nОбновите экран или попробуйте позже</string>
+    <string name="refresh_btn_text">Обновить</string>
+    <string name="favorites_screen_title">Мои избранные</string>
 </resources>

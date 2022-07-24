@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.gallery.GalleryPageFragment">
+    tools:context=".presentation.favorites.FavoritesPageFragment">
 
     <TextView
-        android:id="@+id/auth_title_tv"
+        android:id="@+id/gallery_title_tv"
         style="@style/Text.SemiBold.24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="14dp"
-        android:text="@string/auth_screen_title" />
+        android:text="@string/gallery_screen_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/search_icon_iv"
@@ -23,29 +23,90 @@
         android:layout_height="21dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="17dp"
+        android:src="@drawable/ic_search_line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_search_line"
         tools:ignore="ContentDescription" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gallery_load_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gallery_title_tv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/icon_iv"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_emotion_unhappy_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/content_tv"
+                style="@style/Text.Regular.14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="@string/gallery_load_error_text"
+                android:textColor="@color/text_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon_iv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ru.tumist.surfgallery.presentation.views.buttons.AppLoadingButton
+            android:id="@+id/gallery_refresh_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:is_loading="false"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:text="@string/refresh_btn_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/gallery_loader"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:indeterminateTint="@color/black"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gallery_title_tv" />
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/pictures_swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auth_title_tv"
         android:layout_marginTop="23dp"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gallery_title_tv">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pictures_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_picture_main"/>
+            tools:listitem="@layout/item_picture_main" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
